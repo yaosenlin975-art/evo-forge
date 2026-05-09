@@ -1,0 +1,55 @@
+# Darwin Skill v6.0 - 知识库协作配置
+# 用于与 plans-driver 等学习计划类技能的 knowledge_base 联动优化
+
+knowledge_base_settings:
+  # 优化skill时是否自动扫描相关知识库
+  scan_on_optimize: true
+  
+  # 知识库完整度最低要求 (0.0-1.0)
+  min_completeness: 0.8
+  
+  # 是否自动修复缺失内容
+  auto_fix: true
+  
+  # 每次最多优化的知识点数量
+  max_points_per_run: 5
+
+# 关联的学习计划
+linked_plans:
+  - name: "unity_interview"
+    path: "plans/unity_interview/"
+    skill: "plans-driver"
+    priority: high
+    completeness_target: 0.95
+    
+  - name: "csharp_advanced"
+    path: "plans/csharp_advanced/"
+    skill: "plans-driver"
+    priority: medium
+    completeness_target: 0.90
+
+# 知识库质量检查项
+quality_checklist:
+  required_fields:
+    - principle: "原理说明"          # 技术本质、背景、为什么需要
+    - key_points: "关键要点"          # 至少5个要点
+    - comparison: "对比分析"          # 与同类技术对比+优缺点表格
+    - code_example: "代码示例"        # 完整可运行+注释
+    - interview_qa: "面试真题"        # 高频题+详细答案
+    - horizontal: "横向拓展"          # 同级知识点+关系说明
+    - vertical: "纵向拓展"            # 前置+进阶方向
+  
+  optional_fields:
+    - official_docs: "官方文档链接"
+    - common_pitfalls: "常见错误"
+    - best_practices: "最佳实践"
+
+# 评分权重
+scoring_weights:
+  principle: 0.15
+  key_points: 0.10
+  comparison: 0.15
+  code_example: 0.20
+  interview_qa: 0.20
+  horizontal: 0.10
+  vertical: 0.10
